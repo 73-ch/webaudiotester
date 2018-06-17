@@ -1,4 +1,5 @@
 import WebAudioTester from "./WebAudioTester.js";
+import createAudioNode from "./createAudioNode.js";
 
 (function () {
     const test = new WebAudioTester();
@@ -21,5 +22,17 @@ import WebAudioTester from "./WebAudioTester.js";
     change.onclick = () => {
         test.changeOscType("square");
     };
+
+    let context = new AudioContext();
+
+    fetch("./js/audio_nodes.json").then((response) => {
+        return response.json()
+    }).then((json) => {
+        let test2 = new createAudioNode(context, json);
+
+        setTimeout(()=>{
+            console.log(test2.getNodes());
+        }, 10000);
+    });
 
 })();
