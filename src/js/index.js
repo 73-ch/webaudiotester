@@ -32,7 +32,7 @@ import createAudioNode from "./createAudioNode.js";
 
         setTimeout(()=>{
             console.log(test2.getNodes());
-        }, 10000);
+        }, 1000);
     });
 
 })();
